@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#container {
+    height: 100vh;
+}
+
+.relativo {
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    position: relative;
+    left: 40%;
+    z-index: 1;
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    margin-bottom: 16px;
+
+}
+
+.absoluto {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(0, 255, 234);
+    position: absolute;
+    left: 38%;
+    top: 20%;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 40%;
+    z-index: 2;
+    
+}
+
+.fixo {
+    width: 200px;
+    height: 200px;
+    background-color: #19c209;
+    position: fixed;
+    left: 88%;
+    bottom: 10%;
+    transition: 1s ease-in-out;
+}
+
+.fixo:hover {
+    border-radius: 100px;
+}
