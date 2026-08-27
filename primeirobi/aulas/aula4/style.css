@@ -27,7 +27,7 @@
     position: absolute;
     left: 38%;
     top: 20%;
-    border-radius: 100px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,15 +37,37 @@
 }
 
 .fixo {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     background-color: #19c209;
     position: fixed;
     left: 88%;
     bottom: 10%;
-    transition: 1s ease-in-out;
+    transition: 2s ease-in-out;
 }
 
 .fixo:hover {
     border-radius: 100px;
+}
+
+.block {
+    background-color: red;
+    height: 200px;
+}
+
+.inline {
+    background-color: blue;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    
+    
+}
+
+.texto  h1 {
+    font-size: 32px;
+}
+
+.texto  h2 {
+    font-size: 2rem;
 }
