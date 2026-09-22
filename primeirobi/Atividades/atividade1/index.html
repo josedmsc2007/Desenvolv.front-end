@@ -1,61 +1,149 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<!-- Estrutura: documento HTML5 -->
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+    <meta name="description" content="Blog sobre carreira e mercado de trabalho: dicas de currículo, entrevistas e tendências.">
+    <title>Blog - Carreira e Mercado de Trabalho</title>
+>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Pagina de Cadastro</h1>
-    <fieldset>
-        <legend>Crie uma conta</legend>
-        <h2>Registre-se</h2>
-        <label for="nome">Nome</label>
-        <br>
-        <input type="text" id="nome" name="nome" required title="Nome Completo">
-        <br>
-        <label for="email">E-mail</label>
-        <br>
-        <input type="email" id="email" name="email" placeholder="Seuemail@gmail.com" required title="Digite seu e-mail">
-        <br>        
-        <label for="senha">Senha (mínimo 8 caracteres)</label>
-        <br>
-        <input type="password" id="senha" name="senha" minlength="8" required title="Digite sua senha">
-        <br>
-        <br>
-        <br>
-        <h3>Gênero:</h3>
-        <br>
-        <input type="radio" id="masculino" name="genero" value="masculino">
-        <label for="masculino">Masculino</label>
-        <br>
-        <input type="radio" id="feminino" name="genero" value="feminino">
-        <label for="feminino">Feminino</label>
-        <br>
-        <input type="radio" id="outro" name="genero" value="outro">
-        <label for="outro">Outro</label>
 
-        <br>
-        <br>
-        <br>
-        <label for="bio">Biografia</label>
-        <br>
-        <textarea name="bio" id="bio" rows="6" cols="26" style="resize: none;" placeholder="Insira sua biografia..."></textarea>
-        <br>
 
-        <input type="radio" id="termos" name="termos" required>
-        <label for="termos">Aceito os termos de serviço</label>
+    <header>
+        <div class="container">
+            <h1 class="logo">Blog Carreira</h1>
+
+            <nav>
+                <ul>
+                    <li><a href="#tendencias">Tendências</a></li>
+                    <li><a href="#curriculo">Currículo</a></li>
+                    <li><a href="#entrevistas">Entrevistas</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="container">
+
         
-    </fieldset>
-         <br>
-         <br>
-     <input type="submit" value="Cadastrar">
-     <input type="reset" value="Limpar">
+        <section class="intro">
+            <h2>Carreira e mercado de trabalho</h2>
+            <p>O mercado muda rápido. Aqui você encontra dicas sobre tendências, currículo e entrevistas para quem está começando ou trocando de área.</p>
+        </section>
 
-     <style>
-        label {
-            font-weight: bold;
-        }
-     </style>
+        <div class="content">
+
+           
+            <article id="tendencias">
+                <h3>Tendências do mercado</h3>
+                <p>Empresas buscam profissionais que sabem trabalhar em equipe e se comunicar bem, além de ter conhecimento técnico. Vagas remotas e híbridas continuam comuns.</p>
+                <p>Participar de projetos práticos na faculdade já conta como experiência. Vale registrar tudo que você construiu.</p>
+
+                
+                <div class="video">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/5Gj9PaoC-WQ"
+                        title="Carreira em Pauta - A tecnologia na minha carreira"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </article>
+
+           
+            <article id="curriculo">
+                <h3>Currículo</h3>
+                <p>Use os mesmos termos da vaga no seu currículo e descreva resultados, não só tarefas. Troque "responsável por" por números e exemplos concretos.</p>
+            </article>
+
+            
+            <article id="entrevistas">
+                <h3>Entrevistas</h3>
+                <p>Em entrevista técnica, explique seu raciocínio em voz alta. Revise o básico antes: lógica, estrutura de dados e banco de dados.</p>
+            </article>
+
+           
+            <aside>
+                <h3>Dicas rápidas</h3>
+                <ul>
+                    <li>Portfólio vale mais que lista de certificados</li>
+                    <li>Mande um obrigado após a entrevista</li>
+                    <li>Comece a rede de contatos na faculdade</li>
+                </ul>
+            </aside>
+
+        </div>
+
+        
+        <section id="newsletter">
+            <h2>Assine a newsletter</h2>
+            <p>Receba dicas sobre vagas e carreira por e-mail.</p>
+
+         
+            <form action="#" method="post">
+
+                <div class="form-group">
+                    
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required minlength="3">
+                </div>
+
+                <div class="form-group">
+                
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                   
+                    <label for="nascimento">Data de nascimento</label>
+                    <input type="date" id="nascimento" name="nascimento">
+                </div>
+
+                <div class="form-group">
+                    
+                    <label for="experiencia">Anos de experiência</label>
+                    <input type="number" id="experiencia" name="experiencia" min="0" max="50">
+                </div>
+
+                <div class="form-group">
+                   
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" pattern="[A-Za-zÀ-ÿ\s]+" title="Apenas letras">
+                </div>
+
+                <div class="form-group">
+                   
+                    <label>Frequência de envio</label>
+                    <label for="freq-semanal"><input type="radio" id="freq-semanal" name="frequencia" value="semanal" checked> Semanal</label>
+                    <label for="freq-mensal"><input type="radio" id="freq-mensal" name="frequencia" value="mensal"> Mensal</label>
+                </div>
+
+                <div class="form-group">
+                   
+                    <label>Áreas de interesse</label>
+                    <label for="int-dev"><input type="checkbox" id="int-dev" name="interesses" value="dev"> Desenvolvimento</label>
+                    <label for="int-dados"><input type="checkbox" id="int-dados" name="interesses" value="dados"> Dados</label>
+                </div>
+
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+        </section>
+
+    </main>
+
+    
+    <footer>
+        <div class="container">
+            <p>2026 Blog Carreira. Trabalho acadêmico.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
