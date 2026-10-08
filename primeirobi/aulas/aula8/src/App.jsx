@@ -19,7 +19,7 @@ export default function App() {
     const novoProduto = {
       id: listaProdutos.length + 1,
       nome: produto,
-      valor:(valorProduto),
+      valor: parseFloat(valorProduto) || 0,
     }
 
     setListaProdutos([...listaProdutos, novoProduto]);
