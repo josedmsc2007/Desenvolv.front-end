@@ -13,7 +13,67 @@ import TruckIcon from "./assets/truck.svg";
 import ToolIcon from "./assets/tool.svg";
 import ChartIcon from "./assets/chart.svg";
 import "./styles/Solution.css";
+import TestimonialCard from "./components/TestimonialCard";
+import AvatarML from "./assets/profiles/avatar-ml.svg";
+import AvatarPA from "./assets/profiles/avatar-pa.svg";
+import AvatarCS from "./assets/profiles/avatar-cs.svg";
+import "./styles/Testimonials.css";
+import PricingCard from "./components/PricingCard";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import "./styles/Pricing.css";
 
+const testimonials = [
+    {
+        image: AvatarML,
+        name: "Marcos Lima",
+        role: "Gestor de frota",
+        rating: 5,
+        text: "Antes eu anotava tudo em caderno. Agora sei quem pegou cada veículo, para qual obra e quando voltou.",
+    },
+    {
+        image: AvatarPA,
+        name: "Paulo Andrade",
+        role: "Mestre de obras",
+        rating: 4,
+        text: "Registrar a saída e a devolução leva segundos. Acabou a discussão de quem estava com a caminhonete.",
+    },
+    {
+        image: AvatarCS,
+        name: "Carla Souza",
+        role: "Engenheira de obra",
+        rating: 5,
+        text: "Os relatórios por obra me mostram o custo de combustível e manutenção sem precisar montar planilha.",
+    },
+];
+// EXEMPLOS: ajuste planos, preços e benefícios com o cliente
+const plans = [
+    {
+        name: "Básico",
+        description: "Comece a organizar a frota hoje mesmo.",
+        price: "Grátis",
+        buttonText: "Começar agora",
+        features: ["Até 5 veículos", "Controle de saída e devolução", "Relatórios simples"],
+    },
+    {
+        name: "Profissional",
+        description: "Para quem precisa de controle completo, sem limitações.",
+        price: "R$ 49,90",
+        period: "/mês",
+        buttonText: "Experimente de graça",
+        featured: true,
+        badge: "1º mês grátis",
+        features: ["Veículos ilimitados", "Abastecimento e manutenção", "Relatórios com filtros combináveis"],
+    },
+    {
+        name: "Empresarial",
+        description: "Para construtoras com várias obras e equipes.",
+        price: "R$ 9,90",
+        period: "/mês por veículo",
+        buttonText: "Falar com a gente",
+        features: ["Várias empresas e obras", "Perfis de administrador e motorista", "Suporte dedicado"],
+    },
+];
 
 export default function Home() {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -23,6 +83,9 @@ export default function Home() {
             html.style.overflow = showMobileMenu ? "hidden" : "auto";
         }
     }, [showMobileMenu]);
+
+    const cards = testimonials.map((t) => <TestimonialCard key={t.name} {...t} />);
+
     return (
         <>
             <header className="container py-sm">
@@ -49,9 +112,9 @@ export default function Home() {
                     </div>
 
                     <div className="desktop-only">
-                        <div className="flex items-center">
-                            <a className="reverse-color ml-lg" href="">Login</a>
-                            {/* <Button text="Cadastre-se" />  */}
+                        <div className="flex items-center gap-1">
+                            <span><Button text="Login" secondary /></span>
+                            <span><Button text="Cadastre-se" /></span>
                         </div>
                     </div>
 
@@ -74,6 +137,9 @@ export default function Home() {
                                         </li>
                                         <li>
                                             <a onClick={() => setShowMobileMenu(!showMobileMenu)} href="#contact">Contato</a>
+                                        </li>
+                                        <li>
+                                            <a onClick={() => setShowMobileMenu(!showMobileMenu)} href="#">Login</a>
                                         </li>
                                     </ul>
                                     <span onClick={() => setShowMobileMenu(!showMobileMenu)} className="btn-wrapper">
@@ -143,7 +209,35 @@ export default function Home() {
                         text="Filtre por veículo, obra, motorista ou período e tenha os números na mão."
                     />
                 </section>
+
             </section>
+            <section id="testimonials">
+                <header>
+                    <span>
+                        <span className="desktop-only">Conselho de quem conhece</span>
+                        <h2>Cada cliente importa!</h2>
+                    </span>
+                    <p>Veja o que dizem as equipes que já organizaram a frota com a Gestão Fácil.</p>
+                </header>
+
+                <section className="carousel">
+                    <div className="carousel-content">{cards}</div>
+                    <div className="carousel-content" aria-hidden="true">{cards}</div>
+                </section>
+            </section>
+            <section className="container" id="pricing">
+                <header>
+                    <span>Planos e preços</span>
+                    <h2>Nossos planos</h2>
+                </header>
+                <div className="even-columns">
+                    {plans.map((plan) => (
+                        <PricingCard key={plan.name} {...plan} />
+                    ))}
+                </div>
+            </section>
+            <Contact />
+            <Footer />
         </>
     )
 }
