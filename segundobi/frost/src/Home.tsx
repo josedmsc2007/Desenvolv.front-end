@@ -227,7 +227,7 @@ export default function Home() {
             </section>
             <section className="container" id="pricing">
                 <header>
-                    <span>Planos e preços</span>
+                    <span className="desktop-only">Planos e preços</span>
                     <h2>Nossos planos</h2>
                 </header>
                 <div className="even-columns">

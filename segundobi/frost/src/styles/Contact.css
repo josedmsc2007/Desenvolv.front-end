@@ -68,3 +68,7 @@
     color: var(--primary-color);
     font-weight: var(--fw-bold);
 }
+
+#contact form p.error {
+    color: #c0392b;
+}

@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Variaveis secretas (nunca commitar)
+.env
+.netlify

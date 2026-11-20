@@ -113,6 +113,11 @@
 
 @media (width >= 1280px) {
     #pricing {
-        padding-block: 6rem;
+        gap: 5rem;
+        padding-block: 5rem;
+    }
+
+    #pricing .pricing-card h3 {
+        font-size: 1.25rem;
     }
 }

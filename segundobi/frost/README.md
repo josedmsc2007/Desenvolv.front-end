@@ -1,75 +1,38 @@
-# React + TypeScript + Vite
+# Gestão Fácil — Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page de divulgação do **Gestão Fácil**, sistema de controle de frota de veículos.
+Feita com React + Vite + TypeScript. O formulário de contato envia e-mail por uma
+**Netlify Function** (`netlify/functions/send-email.ts`) usando Nodemailer.
 
-Currently, two official plugins are available:
+## Rodando localmente
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npx netlify dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Abra `http://localhost:8888` (é por esse endereço que a função de e-mail funciona).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Variáveis de ambiente
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Copie `.env.example` para `.env` e preencha (o `.env` **nunca** vai para o Git):
 
-```
+| Variável | Para que serve |
+| --- | --- |
+| `SMTP_HOST` | Endereço do servidor SMTP do provedor de e-mail |
+| `SMTP_PORT` | Porta (`587`) |
+| `SMTP_SECURE` | `false` para a porta 587 |
+| `SMTP_USER` | Usuário do SMTP (e-mail que envia) |
+| `SMTP_PASS` | Senha do SMTP (no Gmail, uma Senha de App) |
+| `CONTACT_EMAIL` | E-mail que **recebe** as mensagens do formulário |
+| `ALLOWED_ORIGIN` | URL do site publicado (vazio em desenvolvimento) |
+
+Em produção, as mesmas variáveis são cadastradas no painel do Netlify
+(Site configuration > Environment variables).
+
+## Deploy no Netlify
+
+- Build command: `npm run build`
+- Publish directory: `dist`
+- Functions directory: `netlify/functions`
+- Base directory: `segundobi/frost` (pasta do projeto dentro do repositório)
